@@ -6,7 +6,6 @@ metadata:
   labels:
     app: apache0-test-app-service
   name: apache0-test-app-service
-  namespace: dops-master
 spec:
   replicas: 1
   selector:

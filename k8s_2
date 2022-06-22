@@ -1,1 +1,0 @@
-KUBELET_EXTRA_ARGS=--node-ip=['172.27.140.41']

@@ -1,0 +1,6 @@
+[init] Using Kubernetes version: v1.24.2
+[preflight] Running pre-flight checks
+[init] Using Kubernetes version: v1.24.2
+[preflight] Running pre-flight checks
+[init] Using Kubernetes version: v1.24.2
+[preflight] Running pre-flight checks

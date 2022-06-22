@@ -1,0 +1,11 @@
+- hosts: all
+  become: yes
+  tasks:
+   - name: cut file
+     shell: | 
+       cat /etc/hosts
+     register: file_content
+   - name: print to console
+     debug:
+       msg: "{{ file_content.stdout }}"
+

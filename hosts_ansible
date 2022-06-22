@@ -1,0 +1,27 @@
+127.0.0.1 localhost
+127.0.1.1 ppas-kub-01
+##########################
+172.27.140.41 ppas-kub-01
+172.27.140.41 kub-41-master
+172.27.140.41 master
+##########################
+172.27.140.42 ppas-kub-02
+172.27.140.42 kub-42-work2
+172.27.140.42 work2
+##########################
+172.27.140.43 ppas-kub-03
+172.27.140.43 kub-43-work3
+172.27.140.43 work3
+
+
+
+
+
+
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters

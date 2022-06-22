@@ -7,4 +7,4 @@
       yum:
         state: present
         name:
-                - htop, wget, screen
+                - htop, wget, net-tools

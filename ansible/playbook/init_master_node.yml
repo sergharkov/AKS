@@ -3,7 +3,7 @@
   become_user: root
   tasks:
     - name: initialize the cluster
-      shell: kubeadm init --pod-network-cidr=10.244.0.0/16 >> /DATA/ansible/cluster_initialized.txt
+      shell: kubeadm init --pod-network-cidr=10.244.0.0/16 >> /DATA/K8S/cluster_initialized.txt
       args:
         chdir: $HOME
         creates: cluster_initialized.txt
@@ -26,7 +26,7 @@
     - name: install Pod network
       become: yes
       become_user: ubuntu
-      shell: kubectl apply -f https://github.com/flannel-io/flannel/blob/master/Documentation/kube-flannel.yml >> /DATA/ansible/pod_network_setup.txt
+      shell: kubectl apply -f https://github.com/flannel-io/flannel/blob/master/Documentation/kube-flannel.yml >> /DATA/K8S/pod_network_setup.txt
       args:
         chdir: $HOME
         creates: pod_network_setup.txt

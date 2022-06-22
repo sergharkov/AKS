@@ -24,13 +24,13 @@
         - kubeadm 
         - kubectl
 
-  - name: Configure node ip
-    lineinfile:
-      path: /DATA/ansible/k8s
-      line: KUBELET_EXTRA_ARGS=--node-ip={{ node_ip }}
-    vars:
-      node_ip:
-        - 172.27.140.41
+#  - name: Configure node ip
+#    lineinfile:
+#      path: /DATA/ansible/k8s
+#      line: KUBELET_EXTRA_ARGS=--node-ip={{ node_ip }}
+#    vars:
+#      node_ip:
+#        - 172.27.140.41
 
   - name: Restart kubelet
     service:

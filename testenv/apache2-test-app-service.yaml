@@ -8,7 +8,7 @@ metadata:
   name: apache2-test-app-service
   namespace: dops-master
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: apache2-test-app-service

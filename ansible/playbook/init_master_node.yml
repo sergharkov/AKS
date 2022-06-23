@@ -11,6 +11,8 @@
         mode: 0777
         #      when: p.stat.exists is defined and not p.stat.exists
 
+#    - name: Initialize the Kubernetes cluster using kubeadm
+#      command: kubeadm init --apiserver-advertise-address="192.168.50.10" --apiserver-cert-extra-sans="192.168.50.10"  --node-name k8s-master --pod-network-cidr=192.168.0.0/16
 #    - name: create file
 #      file:
 #        path: /DATA/K8S/stdout_creat_cluster/pod_network_setup.txt

@@ -51,3 +51,10 @@
       become_user: ubuntu
       shell: 
          "kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml >> /DATA/K8S/stdout_creat_cluster/pod_network_setup.txt"
+         
+    - name: install metric ingress BM
+      become: yes
+      become_user: ubuntu
+      shell: 
+         "kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml"
+         

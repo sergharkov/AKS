@@ -1,0 +1,26 @@
+- hosts: masters
+  become: true
+  become_user: root
+  tasks:
+
+    - name: create directory for stdout
+      become: yes
+      become_user: ubuntu
+      file:
+        path: /DATA/K8S/stdout_creat_cluster
+        state: directory
+        mode: 0777
+
+    - name: create file 
+      file: 
+        path: /DATA/K8S/stdout_creat_cluster/pod_network_setup.txt
+        state: touch
+        owner: ubuntu
+        mode: 0777
+      when: p.stat.exists is defined and not p.stat.exists
+
+    - name: install Pod network
+      become: yes
+      become_user: ubuntu
+      shell: 
+         "kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml >> /DATA/K8S/stdout_creat_cluster/pod_network_setup.txt"

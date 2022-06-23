@@ -2,12 +2,26 @@
   become: true
   become_user: root
   tasks:
+    - name: create directory for stdout
+      become: yes
+      become_user: root
+      file:
+        path: /DATA/K8S/stdout_creat_cluster
+        state: directory
+        mode: 0777
+        #      when: p.stat.exists is defined and not p.stat.exists
+
+#    - name: create file
+#      file:
+#        path: /DATA/K8S/stdout_creat_cluster/pod_network_setup.txt
+#        state: touch
+#        owner: ubuntu
+#        mode: 0777
+#      when: p.stat.exists is defined and not p.stat.exists
+
     - name: initialize the cluster
       shell: 
          "kubeadm init --pod-network-cidr=10.244.0.0/16 >> /DATA/K8S/stdout_creat_cluster/cluster_initialized.txt"
-      #      args:
-      #        chdir: $HOME
-      #  creates:  /DATA/K8S/cluster_initialized.txt
 
     - name: create .kube directory
       become: yes
@@ -29,8 +43,3 @@
       become_user: ubuntu
       shell: 
          "kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml >> /DATA/K8S/stdout_creat_cluster/pod_network_setup.txt"
-      args:
-        chdir: $HOME
-        creates: pod_network_setup.txt
-
-

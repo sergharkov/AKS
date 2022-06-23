@@ -23,6 +23,4 @@ ansible-playbook io.cat_file_host.yml
 
 ansible-playbook io_init_master_node.yml
 
-ansible-playbook kube-dependencies.yml
-
 ansible-playbook test.yml

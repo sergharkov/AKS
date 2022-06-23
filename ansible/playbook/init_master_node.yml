@@ -45,3 +45,9 @@
       become_user: ubuntu
       shell: 
          "kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Documentation/kube-flannel.yml >> /DATA/K8S/stdout_creat_cluster/pod_network_setup.txt"
+
+    - name: install metric server
+      become: yes
+      become_user: ubuntu
+      shell: 
+         "kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml >> /DATA/K8S/stdout_creat_cluster/pod_network_setup.txt"

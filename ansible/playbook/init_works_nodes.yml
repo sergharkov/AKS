@@ -14,10 +14,19 @@
   become: true
   become_user: root
   tasks:
+    - name: clearing config /etc/containerd/config.toml
+      ignore_errors: yes
+      file:
+        state: absent
+        path: /etc/containerd/config.toml
+        
+    - name: run conteiners
+      shell:
+         "systemctl restart containerd"
+
     - name: get join command
       shell: 
          "{{ hostvars['master'].join_command }} >> /tmp/node_joined.txt"
       args:
         chdir: $HOME
-        creates: node_joined.txt          
-
+        creates: node_joined.txt
